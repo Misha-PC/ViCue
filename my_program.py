@@ -14,12 +14,12 @@ def read_json_file(path) -> dict:
         return load(file)
 
 
-def get_decrypted_value(token, encrypted_value) -> (bytes, str):
+def get_decrypted_value(token, encrypted_value) -> bytes:
     """
     Расшифровывает строки по алгоритму Фернет.
     :param token: str
     :param encrypted_value: str
-    :return: str
+    :return: bytes
     """
     fernet = Fernet(token)
     value = fernet.decrypt(encrypted_value.encode())
